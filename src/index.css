@@ -4,12 +4,43 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #f6fcff;
+    font-family: "Montserrat", sans-serif;
+}
+
 ul,
 ol {
     list-style: none;
 }
 
-a {
+a,
+nav button {
     text-decoration: none;
+    background-color: transparent;
+    border: none;
     color: #000;
+    transition: 0.4s ease-in;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+a:hover,
+nav button:hover {
+    color: #bbb;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
 }
