@@ -31,11 +31,7 @@ export const useAuthentication = () => {
         setError(null);
 
         try {
-            const { user } = await createUserWithEmailAndPassword(
-                auth,
-                data.email,
-                data.password
-            );
+            const { user } = await createUserWithEmailAndPassword(auth, data.email, data.password);
 
             await updateProfile(user, {
                 displayName: data.displayName,
@@ -51,13 +47,11 @@ export const useAuthentication = () => {
             let systemErrorMessage;
 
             if (error.message.includes("Password")) {
-                systemErrorMessage =
-                    "A senha precisa conter pelo menos 6 caracteres.";
+                systemErrorMessage = "A senha precisa conter pelo menos 6 caracteres.";
             } else if (error.message.includes("email-already")) {
                 systemErrorMessage = "E-mail já castrado";
             } else {
-                systemErrorMessage =
-                    "Ocorreu um erro, por favor tente mais tarde.";
+                systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
             }
 
             setLoading(false);
