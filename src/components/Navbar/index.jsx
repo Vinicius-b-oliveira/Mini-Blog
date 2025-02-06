@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useAuthentication } from "../../hooks/useAuthentication";
-import { useAuthValue } from "../../contexts/AuthProvider";
+import { useAuthValue } from "../../contexts/AuthContext";
 
 // CSS
 import styles from "./Navbar.module.css";

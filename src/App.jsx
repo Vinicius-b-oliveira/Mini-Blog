@@ -20,7 +20,7 @@ import CreatePost from "./pages/CreatePost";
 import Dashboard from "./pages/Dashboard";
 
 // Context
-import { AuthProvider } from "./contexts/AuthProvider.jsx";
+import { AuthProvider } from "./contexts/AuthContext.jsx";
 
 function App() {
     const [user, setUser] = useState(undefined);
