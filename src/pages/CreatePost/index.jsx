@@ -18,8 +18,6 @@ const CreatePost = () => {
 
     const navigate = useNavigate();
 
-    console.log(user);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormError("");
@@ -44,7 +42,7 @@ const CreatePost = () => {
             title,
             image,
             body,
-            tagsArray,
+            tags: tagsArray,
             uid: user.uid,
             createdBy: user.displayName,
         });

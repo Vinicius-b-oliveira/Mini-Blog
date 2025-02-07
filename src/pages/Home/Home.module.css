@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-inline: 100px;
 }
 
 .home h1 {
@@ -20,12 +21,6 @@
 .search_form input {
     margin-right: 10px;
     width: 50%;
-}
-
-.home h2 {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .noposts {
