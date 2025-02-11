@@ -21,6 +21,7 @@ import Dashboard from "./pages/Dashboard";
 
 // Context
 import { AuthProvider } from "./contexts/AuthContext.jsx";
+import Search from "./pages/Search/index.jsx";
 
 function App() {
     const [user, setUser] = useState(undefined);
@@ -47,6 +48,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<About />} />
+                            <Route path="/search" element={<Search />} />
                             <Route
                                 path="/login"
                                 element={!user ? <Login /> : <Navigate to="/" />}
