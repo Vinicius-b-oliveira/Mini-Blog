@@ -17,14 +17,18 @@ const Search = () => {
                 {posts && posts.length === 0 && (
                     <div className={styles.noposts}>
                         <p>
-                            Não encontramos nenhum post a partir da busca: <span>{search}</span>
+                            Não encontramos nenhum post a partir da busca:{" "}
+                            <span>{search}</span>
                         </p>
                         <Link to="/" className="btn btn-dark">
                             Voltar
                         </Link>
                     </div>
                 )}
-                {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
+                {posts &&
+                    posts.map((post) => (
+                        <PostDetail key={post.id} post={post} />
+                    ))}
             </div>
 
             <Link to="/" className="btn btn-dark">

@@ -37,7 +37,10 @@ const Home = () => {
 
             <div>
                 {loading && <p>Carregando...</p>}
-                {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
+                {posts &&
+                    posts.map((post) => (
+                        <PostDetail key={post.id} post={post} />
+                    ))}
                 {posts && posts.length === 0 && (
                     <div className={styles.noposts}>
                         <p>Nenhum post foi criado até o momento...</p>

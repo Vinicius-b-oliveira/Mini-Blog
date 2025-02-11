@@ -28,7 +28,9 @@ const CreatePost = () => {
             setFormError("A imagem precisa ser uma URL.");
         }
 
-        const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+        const tagsArray = tags
+            .split(",")
+            .map((tag) => tag.trim().toLowerCase());
 
         if (!title || !image || !tags || !body) {
             setFormError("Por favor, preencha todos os campos!");
@@ -99,7 +101,9 @@ const CreatePost = () => {
                     />
                 </label>
 
-                {!response.loading && <button className="btn">Cadastrar</button>}
+                {!response.loading && (
+                    <button className="btn">Cadastrar</button>
+                )}
 
                 {response.loading && (
                     <button className="btn" disabled>
