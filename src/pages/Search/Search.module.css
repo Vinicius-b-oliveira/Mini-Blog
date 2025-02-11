@@ -6,9 +6,14 @@
     justify-content: center;
 }
 
-.search_container h2 {
+.search_container h1 {
     margin: 1em 0;
     font-size: 2.2em;
+}
+
+.search_container h2 {
+    margin-top: 1em;
+    font-size: 1.5em;
 }
 
 .search_container span {

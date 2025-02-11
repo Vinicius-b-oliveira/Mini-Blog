@@ -12,7 +12,7 @@ const Search = () => {
 
     return (
         <div className={styles.search_container}>
-            <h2>Filtro de posts</h2>
+            <h1>Filtro de posts</h1>
             <div>
                 {posts && posts.length === 0 && (
                     <div className={styles.noposts}>
@@ -26,6 +26,10 @@ const Search = () => {
                 )}
                 {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
             </div>
+
+            <Link to="/" className="btn btn-dark">
+                Voltar
+            </Link>
         </div>
     );
 };
