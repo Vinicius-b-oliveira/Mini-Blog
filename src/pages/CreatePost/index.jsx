@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../contexts/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { Eye } from "lucide-react";
+import ImagePreviewModal from "../../components/ImagePreviewModal";
 
 const CreatePost = () => {
     const [title, setTitle] = useState("");
@@ -12,11 +14,21 @@ const CreatePost = () => {
     const [tags, setTags] = useState([]);
     const [formError, setFormError] = useState("");
 
+    const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
+
     const { insertDocument, response } = useInsertDocument("posts");
 
     const { user } = useAuthValue();
 
     const navigate = useNavigate();
+
+    const openPreviewModal = () => {
+        setIsPreviewModalOpen(true);
+    };
+
+    const closePreviewModal = () => {
+        setIsPreviewModalOpen(false);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +37,7 @@ const CreatePost = () => {
         try {
             new URL(image);
         } catch (error) {
+            console.log(error.message);
             setFormError("A imagem precisa ser uma URL.");
         }
 
@@ -68,17 +81,24 @@ const CreatePost = () => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </label>
-                <label>
-                    <span>URL da imagem: </span>
-                    <input
-                        type="text"
-                        name="image"
-                        required
-                        placeholder="Insira uma imagem que representa o seu post"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
+                <div className={styles.image_input_container}>
+                    <label>
+                        <span>URL da imagem: </span>
+                        <input
+                            type="text"
+                            name="image"
+                            required
+                            placeholder="Insira uma imagem que representa o seu post"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
+                        />
+                    </label>
+
+                    <Eye
+                        onClick={openPreviewModal}
+                        className={styles.preview_icon}
                     />
-                </label>
+                </div>
                 <label>
                     <span>Conteúdo: </span>
                     <textarea
@@ -113,6 +133,13 @@ const CreatePost = () => {
                 {response.error && <p className="error">{response.error}</p>}
                 {formError && <p className="error">{formError}</p>}
             </form>
+
+            {isPreviewModalOpen && (
+                <ImagePreviewModal
+                    closePreviewModal={closePreviewModal}
+                    image={image}
+                />
+            )}
         </div>
     );
 };

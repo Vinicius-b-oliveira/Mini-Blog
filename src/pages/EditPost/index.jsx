@@ -6,6 +6,9 @@ import { useAuthValue } from "../../contexts/AuthContext";
 import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 
+import ImagePreviewModal from "../../components/ImagePreviewModal";
+import { Eye } from "lucide-react";
+
 const EditPost = () => {
     const { id } = useParams();
     const { document: post } = useFetchDocument("posts", id);
@@ -15,6 +18,8 @@ const EditPost = () => {
     const [body, setBody] = useState("");
     const [tags, setTags] = useState([]);
     const [formError, setFormError] = useState("");
+
+    const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
 
     useEffect(() => {
         if (post) {
@@ -34,6 +39,14 @@ const EditPost = () => {
 
     const navigate = useNavigate();
 
+    const openPreviewModal = () => {
+        setIsPreviewModalOpen(true);
+    };
+
+    const closePreviewModal = () => {
+        setIsPreviewModalOpen(false);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormError("");
@@ -41,6 +54,7 @@ const EditPost = () => {
         try {
             new URL(image);
         } catch (error) {
+            console.log(error.message);
             setFormError("A imagem precisa ser uma URL.");
         }
 
@@ -88,25 +102,24 @@ const EditPost = () => {
                                 onChange={(e) => setTitle(e.target.value)}
                             />
                         </label>
-                        <label>
-                            <span>URL da imagem: </span>
-                            <input
-                                type="text"
-                                name="image"
-                                required
-                                placeholder="Insira uma imagem que representa o seu post"
-                                value={image}
-                                onChange={(e) => setImage(e.target.value)}
+                        <div className={styles.image_input_container}>
+                            <label>
+                                <span>URL da imagem: </span>
+                                <input
+                                    type="text"
+                                    name="image"
+                                    required
+                                    placeholder="Insira uma imagem que representa o seu post"
+                                    value={image}
+                                    onChange={(e) => setImage(e.target.value)}
+                                />
+                            </label>
+
+                            <Eye
+                                onClick={openPreviewModal}
+                                className={styles.preview_icon}
                             />
-                        </label>
-                        <p className={styles.preview_title}>
-                            Preview da imagem atual:{" "}
-                        </p>
-                        <img
-                            className={styles.image_preview}
-                            src={image}
-                            alt={post.title}
-                        />
+                        </div>
                         <label>
                             <span>Conteúdo: </span>
                             <textarea
@@ -144,6 +157,13 @@ const EditPost = () => {
                         {formError && <p className="error">{formError}</p>}
                     </form>
                 </>
+            )}
+
+            {isPreviewModalOpen && (
+                <ImagePreviewModal
+                    closePreviewModal={closePreviewModal}
+                    image={image}
+                />
             )}
         </div>
     );
