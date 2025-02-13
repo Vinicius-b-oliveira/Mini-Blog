@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #1a8918;
+    --text-color: #000;
+    --bg-light: #f6fcff;
+    --hover-color: #bbb;
+    --active-bg: #000;
+    --active-text: #fff;
+}
+
 .container {
     min-height: 60vh;
     margin-bottom: 5em;
