@@ -3,24 +3,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-inline: 100px;
+    padding-inline: 5%;
 }
 
 .home h1 {
     margin: 40px 0 60px;
+    text-align: center;
 }
 
 .search_form {
-    max-width: 100%;
-    width: 60%;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     justify-content: center;
+    gap: 10px;
     margin-bottom: 2em;
 }
 
 .search_form input {
-    margin-right: 10px;
-    width: 50%;
+    flex: 1;
+    padding: 10px;
+}
+
+.posts_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .noposts {
@@ -33,4 +43,14 @@
 
 .noposts a {
     padding: 10px 25px;
+}
+
+@media (max-width: 560px) {
+    .search_form {
+        flex-direction: column;
+    }
+
+    .search_form .search_btn {
+        width: 100%;
+    }
 }

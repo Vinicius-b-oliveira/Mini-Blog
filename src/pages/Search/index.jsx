@@ -13,27 +13,28 @@ const Search = () => {
     return (
         <div className={styles.search_container}>
             <h1>Filtro de posts</h1>
-            <div>
+            <div className={styles.posts_container}>
                 {posts && posts.length === 0 && (
                     <div className={styles.noposts}>
                         <p>
                             Não encontramos nenhum post a partir da busca:{" "}
                             <span>{search}</span>
                         </p>
-                        <Link to="/" className="btn btn-dark">
-                            Voltar
-                        </Link>
                     </div>
                 )}
-                {posts &&
-                    posts.map((post) => (
-                        <PostDetail key={post.id} post={post} />
-                    ))}
-            </div>
 
-            <Link to="/" className="btn btn-dark">
-                Voltar
-            </Link>
+                {posts && (
+                    <>
+                        {posts.map((post) => (
+                            <PostDetail key={post.id} post={post} />
+                        ))}
+                    </>
+                )}
+
+                <Link to="/" className="btn btn-dark">
+                    Voltar
+                </Link>
+            </div>
         </div>
     );
 };

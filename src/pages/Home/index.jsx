@@ -32,10 +32,12 @@ const Home = () => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
-                <button className="btn btn-dark">Pesquisar</button>
+                <button className={`btn btn-dark ${styles.search_btn}`}>
+                    Pesquisar
+                </button>
             </form>
 
-            <div>
+            <div className={styles.posts_container}>
                 {loading && <p>Carregando...</p>}
                 {posts &&
                     posts.map((post) => (
