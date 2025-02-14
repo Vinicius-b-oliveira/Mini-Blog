@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #f6fcff;
+    background-color: var(--bg-light);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -27,7 +27,7 @@ nav button {
 
 a:hover,
 nav button:hover {
-    color: #bbb;
+    color: var(--hover-color);
 }
 
 input::placeholder,
@@ -77,7 +77,7 @@ textarea {
 }
 
 .btn {
-    background-color: #1a8918;
+    background-color: var(--primary-color);
     color: #fff;
     text-align: center;
     cursor: pointer;
@@ -113,7 +113,7 @@ textarea {
 }
 
 .btn.btn-danger:hover {
-    background-color: #dc3545;
+    background-color: var(--danger-color);
 }
 
 button[disabled] {

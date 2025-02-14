@@ -55,6 +55,14 @@ const Navbar = () => {
                                     Cadastrar
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/about"
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    Sobre
+                                </NavLink>
+                            </li>
                         </>
                     )}
                     {user && (
