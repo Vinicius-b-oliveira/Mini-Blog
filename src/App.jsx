@@ -47,7 +47,7 @@ function App() {
     return (
         <div className="App">
             <AuthProvider value={{ user }}>
-                <BrowserRouter>
+                <BrowserRouter basename="/Mini-Blog">
                     <Navbar />
                     <div className="container">
                         <Routes>
