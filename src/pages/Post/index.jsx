@@ -1,10 +1,16 @@
 import styles from "./Post.module.css";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Post = () => {
     const { id } = useParams();
     const { document: post, loading } = useFetchDocument("posts", id);
+
+    const navigate = useNavigate();
+
+    const searchTag = (tag) => {
+        return navigate(`/search?q=${tag}`);
+    };
 
     return (
         <div className={styles.post_container}>
@@ -21,7 +27,7 @@ const Post = () => {
                     <h3>Este post trata sobre:</h3>
                     <div className={styles.tags}>
                         {post.tags.map((tag) => (
-                            <p key={tag}>
+                            <p key={tag} onClick={() => searchTag(tag)}>
                                 <span>#</span>
                                 {tag}
                             </p>

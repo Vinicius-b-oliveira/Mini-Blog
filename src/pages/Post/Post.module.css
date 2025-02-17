@@ -50,6 +50,12 @@
     border-radius: 5px;
     font-weight: bold;
     color: var(--text-color);
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.tags p:hover {
+    transform: scale(1.05);
 }
 
 .tags span {
