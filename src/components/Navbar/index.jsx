@@ -1,11 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+
+// Hooks
+import { useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../../contexts/AuthContext";
 
+// Icons
+import { Menu, X } from "lucide-react";
+
 // CSS
 import styles from "./Navbar.module.css";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
 
 const Navbar = () => {
     const { user } = useAuthValue();
@@ -20,7 +24,6 @@ const Navbar = () => {
                     Mini <span>Blog</span>
                 </Link>
 
-                {/* Botão para abrir/fechar menu no mobile */}
                 <button
                     className={styles.menuToggle}
                     onClick={() => setMenuOpen(!menuOpen)}
@@ -28,7 +31,6 @@ const Navbar = () => {
                     {menuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
 
-                {/* Lista de links */}
                 <ul
                     className={`${styles.links_list} ${menuOpen ? styles.open : ""}`}
                 >

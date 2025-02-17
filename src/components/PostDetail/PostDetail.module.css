@@ -14,8 +14,8 @@
 .post_detail img {
     width: 100%;
     max-width: 400px;
-    height: 250px; /* Altura fixa para padronizar */
-    object-fit: cover; /* Mantém proporção e corta excessos */
+    height: 250px;
+    object-fit: cover;
     border-radius: 8px;
 }
 

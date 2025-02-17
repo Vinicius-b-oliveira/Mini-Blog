@@ -1,8 +1,12 @@
-import styles from "./Dashboard.module.css";
 import { Link } from "react-router-dom";
+
+// Hooks
 import { useAuthValue } from "../../contexts/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+
+// CSS
+import styles from "./Dashboard.module.css";
 
 const Dashboard = () => {
     const { user } = useAuthValue();
@@ -30,38 +34,40 @@ const Dashboard = () => {
             ) : (
                 <>
                     <div className={styles.table_container}>
-                        {/* Cabeçalho só visível no desktop */}
                         <div className={styles.post_header}>
                             <span>Título</span>
                             <span>Ações</span>
                         </div>
-                        {posts.map((post) => (
-                            <div className={styles.post_row} key={post.id}>
-                                <p className={styles.post_title}>
-                                    {post.title}
-                                </p>
-                                <div className={styles.actions}>
-                                    <Link
-                                        to={`/posts/${post.id}`}
-                                        className="btn btn-outline"
-                                    >
-                                        Ver
-                                    </Link>
-                                    <Link
-                                        to={`/posts/edit/${post.id}`}
-                                        className="btn btn-outline"
-                                    >
-                                        Editar
-                                    </Link>
-                                    <button
-                                        className="btn btn-outline btn-danger"
-                                        onClick={() => deleteDocument(post.id)}
-                                    >
-                                        Excluir
-                                    </button>
+                        {posts &&
+                            posts.map((post) => (
+                                <div className={styles.post_row} key={post.id}>
+                                    <p className={styles.post_title}>
+                                        {post.title}
+                                    </p>
+                                    <div className={styles.actions}>
+                                        <Link
+                                            to={`/posts/${post.id}`}
+                                            className="btn btn-outline"
+                                        >
+                                            Ver
+                                        </Link>
+                                        <Link
+                                            to={`/posts/edit/${post.id}`}
+                                            className="btn btn-outline"
+                                        >
+                                            Editar
+                                        </Link>
+                                        <button
+                                            className="btn btn-outline btn-danger"
+                                            onClick={() =>
+                                                deleteDocument(post.id)
+                                            }
+                                        >
+                                            Excluir
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
                     </div>
                 </>
             )}

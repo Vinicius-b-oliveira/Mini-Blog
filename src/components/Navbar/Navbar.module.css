@@ -67,7 +67,6 @@
     background: #721c24;
 }
 
-/* Menu Responsivo */
 .menuToggle {
     display: none;
     background: none;
@@ -75,7 +74,6 @@
     cursor: pointer;
 }
 
-/* Estilos para telas menores */
 @media (max-width: 768px) {
     .menuToggle {
         display: block;

@@ -2,41 +2,55 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .image_preview_modal {
-    width: 600px;
-    height: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 30px;
-    border-radius: 25px;
-    background-color: #353535;
-    color: #fff;
+    align-items: center;
+    overflow: hidden;
 }
 
-.image_preview_modal > div {
+.modal_header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.image_preview_modal .close_icon {
+.modal_title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close_button {
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: 0.2s;
+    color: #000;
+    font-size: 24px;
+    padding: 0;
 }
 
-.image_preview_modal .close_icon:hover {
-    color: #dc3545;
-}
-
-.image_preview_modal img {
-    max-width: 100%;
+.preview_image {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
 }

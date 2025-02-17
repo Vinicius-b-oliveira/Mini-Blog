@@ -1,6 +1,9 @@
-import styles from "./Post.module.css";
+// Hooks
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { Link, useParams, useNavigate } from "react-router-dom";
+
+// CSS
+import styles from "./Post.module.css";
 
 const Post = () => {
     const { id } = useParams();

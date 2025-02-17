@@ -30,13 +30,11 @@
     padding: 10px 25px;
 }
 
-/* Contêiner geral */
 .table_container {
     width: 100%;
     max-width: 900px;
 }
 
-/* Cabeçalho apenas no desktop */
 .post_header {
     display: flex;
     justify-content: space-between;
@@ -63,19 +61,16 @@
     padding: 8px;
 }
 
-/* Ações */
 .actions {
     display: flex;
     gap: 10px;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .dashboard {
         padding: 1rem;
     }
 
-    /* Esconde os títulos "Título" e "Ações" */
     .post_header {
         display: none;
     }
@@ -87,7 +82,6 @@
         border-bottom: 1px solid #ddd;
     }
 
-    /* Título do post ocupa a largura toda */
     .post_title {
         font-weight: bold;
         font-size: 1.1em;

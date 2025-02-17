@@ -13,7 +13,7 @@
 .post_image {
     width: 100%;
     max-width: 600px;
-    height: 350px; /* Altura fixa para uniformidade */
+    height: 350px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -62,7 +62,6 @@
     color: var(--primary-color);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .post_container {
         padding: 1.5rem;
