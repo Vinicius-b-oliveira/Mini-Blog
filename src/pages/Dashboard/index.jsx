@@ -29,15 +29,18 @@ const Dashboard = () => {
                 </div>
             ) : (
                 <>
-                    <div className={styles.post_header}>
-                        <span>Título</span>
-                        <span>Ações</span>
-                    </div>
-                    {posts &&
-                        posts.map((post) => (
+                    <div className={styles.table_container}>
+                        {/* Cabeçalho só visível no desktop */}
+                        <div className={styles.post_header}>
+                            <span>Título</span>
+                            <span>Ações</span>
+                        </div>
+                        {posts.map((post) => (
                             <div className={styles.post_row} key={post.id}>
-                                <p>{post.title}</p>
-                                <div>
+                                <p className={styles.post_title}>
+                                    {post.title}
+                                </p>
+                                <div className={styles.actions}>
                                     <Link
                                         to={`/posts/${post.id}`}
                                         className="btn btn-outline"
@@ -59,6 +62,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
                 </>
             )}
         </div>
